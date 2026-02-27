@@ -3,143 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OLI'energie - Solutions Énergétiques</title>
+    <title>OLI'energie - Solutions Énergétiques Professionnelles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-      body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                    url('https://images.unsplash.com/photo-1509391366360-fe5bb584852a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        margin: 0;
-        padding: 20px;
-      }
+        :root {
+            --primary-color: #28a745;
+            --secondary-color: #1a2a3a;
+            --accent-color: #f8f9fa;
+        }
 
-      .container {
-        background: rgba(255, 255, 255, 0.96);
-        padding: 40px;
-        border-radius: 20px;
-        max-width: 500px;
-        width: 100%;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        border-top: 10px solid #28a745;
-        backdrop-filter: blur(5px);
-      }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(rgba(26, 42, 58, 0.8), rgba(26, 42, 58, 0.8)), 
+                        url('https://images.unsplash.com/photo-1509391366360-fe5bb584852a?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 40px 20px;
+            color: #333;
+        }
 
-      h2 {
-        color: #1a2a3a;
-        text-align: center;
-        margin-bottom: 5px;
-        font-size: 26px;
-        text-transform: uppercase;
-      }
+        .main-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-      .subtitle {
-        text-align: center;
-        color: #28a745;
-        margin-bottom: 25px;
-        font-size: 14px;
-        font-weight: bold;
-        letter-spacing: 1px;
-      }
+        /* --- Header & Container --- */
+        .container {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            border-top: 8px solid var(--primary-color);
+        }
 
-      label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: 600;
-      }
+        h1 {
+            color: var(--secondary-color);
+            text-align: center;
+            margin: 0;
+            font-weight: 800;
+            font-size: 32px;
+            letter-spacing: -1px;
+        }
 
-      .phone-group {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 20px;
-      }
+        .subtitle {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
-      input, select, textarea {
-        width: 100%;
-        padding: 12px;
-        margin-bottom: 20px;
-        border: 2px solid #ddd;
-        border-radius: 10px;
-        box-sizing: border-box;
-      }
+        /* --- Tableau des Services --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
 
-      .btn-send {
-        background: linear-gradient(135deg, #28a745, #218838);
-        color: white;
-        padding: 16px;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        width: 100%;
-        font-size: 18px;
-        font-weight: bold;
-        transition: 0.3s;
-      }
+        .service-card {
+            background: var(--accent-color);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid #eee;
+        }
 
-      .btn-whatsapp {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #25d366;
-        color: white;
-        text-decoration: none;
-        padding: 12px;
-        border-radius: 10px;
-        margin-top: 15px;
-        font-weight: bold;
-        transition: 0.3s;
-      }
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
 
-      .btn-whatsapp:hover {
-        background-color: #128c7e;
-      }
+        .service-card i {
+            font-size: 30px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
 
-      .btn-whatsapp img {
-        width: 20px;
-        margin-right: 10px;
-      }
+        .service-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: var(--secondary-color);
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        /* --- Formulaire --- */
+        .form-section {
+            border-top: 1px solid #eee;
+            padding-top: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .phone-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 20px;
+            border: 2px solid #e1e1e1;
+            border-radius: 12px;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: #fff;
+        }
+
+        .btn-send {
+            background: var(--primary-color);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 700;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-send:hover {
+            background: #218838;
+            box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3);
+        }
+
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 12px;
+            margin-top: 15px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128c7e;
+            transform: scale(1.02);
+        }
+
+        .btn-whatsapp i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 24px; }
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>OLI'energie</h2>
-    <p class="subtitle">BIENVENU CHEZ OLI'energie</p>
+<div class="main-wrapper">
+    <div class="container">
+        <h1>OLI'energie</h1>
+        <p class="subtitle">Expertise en Solutions Énergétiques</p>
 
-    <form action="https://formsubmit.co/olivierbobijules75@gmail.com" method="POST">
-        <input type="hidden" name="_captcha" value="false">
-        
-        <label>Nom complet</label>
-        <input type="text" name="Nom" placeholder="Votre nom" required>
-
-        <label>Téléphone</label>
-        <div class="phone-group">
-            <select name="Code" style="flex:1">
-                <option value="+243">🇨🇩 +243</option>
-                <option value="+33">🇫🇷 +33</option>
-                <option value="+225">🇨🇮 +225</option>
-            </select>
-            <input type="tel" name="Numero" placeholder="Numéro" style="flex:2" required>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-solar-panel"></i>
+                <h3>Installation Solaire</h3>
+                <p>Pose de panneaux photovoltaïques haute performance.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-battery-full"></i>
+                <h3>Maintenance</h3>
+                <p>Entretien et optimisation de vos systèmes de stockage.</p>
+            </div>
+            <div class="service-card">
+                <div style="font-size: 30px; color: #28a745; margin-bottom: 15px;">⚡</div>
+                <h3>Audit Énergétique</h3>
+                <p>Analyse complète pour réduire vos factures.</p>
+            </div>
         </div>
 
-        <label>Email</label>
-        <input type="email" name="Email" placeholder="votre@email.com" required>
+        <div class="form-section">
+            <form action="https://formsubmit.co/olivierbobijules75@gmail.com" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <label><i class="fas fa-user"></i> Nom complet</label>
+                <input type="text" name="Nom" placeholder="Ex: Jean Dupont" required>
 
-        <label>Message</label>
-        <textarea name="Message" rows="3"></textarea>
+                <label><i class="fas fa-phone"></i> Téléphone</label>
+                <div class="phone-group">
+                    <select name="Code" style="flex:1">
+                        <option value="+243">🇨🇩 +243</option>
+                        <option value="+33">🇫🇷 +33</option>
+                        <option value="+225">🇨🇮 +225</option>
+                    </select>
+                    <input type="tel" name="Numero" placeholder="830998296" style="flex:2" required>
+                </div>
 
-        <button type="submit" class="btn-send">Envoyer par Email</button>
-    </form>
+                <label><i class="fas fa-envelope"></i> Email professionnel</label>
+                <input type="email" name="Email" placeholder="nom@entreprise.com" required>
 
-    <a href="https://wa.me/243830998296" class="btn-whatsapp" target="_blank">
-        Contactez-nous sur WhatsApp
-    </a>
+                <label><i class="fas fa-comment-alt"></i> Détails de votre projet</label>
+                <textarea name="Message" rows="3" placeholder="Décrivez vos besoins..."></textarea>
+
+                <button type="submit" class="btn-send">Envoyer la demande d'étude</button>
+            </form>
+
+            <a href="https://wa.me/243830998296" class="btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> Discuter sur WhatsApp
+            </a>
+        </div>
+    </div>
 </div>
 
 </body>
