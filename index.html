@@ -16,7 +16,6 @@
             padding: 0;
         }
 
-        /* --- HEADER & LOGO --- */
         header {
             background: var(--dark);
             padding: 20px;
@@ -25,11 +24,11 @@
         }
         header h1 span { color: var(--primary); }
 
-        /* --- DIAPORAMA (SLIDER) --- */
+        /* --- DIAPORAMA OPTIMISÉ --- */
         .slider-container {
             width: 100%;
             max-width: 1100px;
-            height: 400px;
+            height: 450px;
             margin: 20px auto;
             overflow: hidden;
             border-radius: 20px;
@@ -39,19 +38,17 @@
 
         .slides {
             display: flex;
-            width: 1100%; /* Ajusté pour 11 photos */
             height: 100%;
-            transition: transform 1s ease-in-out;
+            transition: transform 0.8s ease-in-out;
         }
 
         .slides img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover; /* Remplit le cadre en recadrant si nécessaire */
-            object-position: center; /* Centre l'image dans le cadre */
+            min-width: 100%;
+            height: 100%;
+            object-fit: cover; /* Recadrage automatique */
+            object-position: center; /* Centrage parfait */
         }
 
-        /* --- MISE EN PAGE PRINCIPALE --- */
         .main-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -93,8 +90,7 @@
 
         @media (max-width: 900px) {
             .main-container { grid-template-columns: 1fr; }
-            .slider-container { height: 250px; }
-            .slides img { height: 250px; }
+            .slider-container { height: 300px; }
         }
     </style>
 </head>
@@ -102,87 +98,81 @@
 
 <header>
     <h1>OLI<span>'energie</span></h1>
-    <p>Solutions Énergétiques & Services Techniques</p>
+    <p>Expertise Énergétique & Multi-Services</p>
 </header>
 
 <div class="slider-container">
     <div class="slides" id="slider">
-        <img src="me.jpg" alt="Installation Panneaux">
-        <img src="PXL_20260120_093002664.MP.jpg" alt="Système Batterie Ragie">
-        <img src="PXL_20251030_065834633.jpg" alt="Installation TV & LED">
-        <img src="PXL_20250909_073748394.jpg" alt="Installation Starlink">
-        <img src="PXL_20250827_173156229.jpg" alt="Tableau Électrique">
-        <img src="PXL_20250825_084122499.jpg" alt="Installation Solaire Toit Rouge">
-        <img src="PXL_20250827_173150506.jpg" alt="Système Batterie Ragie">
-        <img src="PXL_20250909_073748394.jpg" alt="Installation Starlink Toit Rouge">
-        <img src="PXL_20251015_133015185.NIGHT~2.jpg" alt="Supports TV Mural">
-        <img src="PXL_20251030_065834633.jpg" alt="Installation TV & LED">
-        <img src="PXL_20251112_155233578.jpg" alt="Tableau Électrique Ragie">
+        <script>
+            const images = [
+                "me.jpg", "58dca6e77c974770870ebeae53184361.jpg", "IMG-20251212-WA0018.jpg",
+                "IMG-20251228-WA0001.jpg", "PXL_20250825_084122499.jpg", "PXL_20250827_173150506.jpg",
+                "PXL_20250909_073748394.jpg", "PXL_20251015_133015185.NIGHT~2.jpg", "PXL_20251030_065834633.jpg",
+                "PXL_20251112_155233578.jpg", "PXL_20251204_150236883~2.jpg", "PXL_20251212_171817566.jpg",
+                "PXL_20251216_091114425.jpg", "PXL_20251226_102606396.MP~2.jpg", "PXL_20251228_084137357.MP.jpg",
+                "PXL_20260120_154039979~2.jpg", "PXL_20260120_154355634.jpg", "PXL_20260120_161557425.NIGHT.jpg",
+                "PXL_20260120_161614100.NIGHT.jpg", "PXL_20260216_154345146.jpg", "PXL_20260216_154350803.jpg",
+                "PXL_20260216_154434429.jpg", "PXL_20260227_161526098.jpg", "PXL_20260227_162115052.jpg"
+            ];
+            const sliderDiv = document.getElementById('slider');
+            images.forEach(img => {
+                const el = document.createElement('img');
+                el.src = img;
+                sliderDiv.appendChild(el);
+            });
+        </script>
     </div>
 </div>
 
 <div class="main-container">
     <div class="services-panel">
-        <h2>Nos Réalisations & Services</h2>
-        
-        <div class="category-title"><i class="fas fa-bolt"></i> &nbsp; Électricité & Solaire</div>
+        <h2>Nos Services Professionnels</h2>
+        <div class="category-title"><i class="fas fa-bolt"></i> &nbsp; Énergie Solaire & SNEL</div>
         <ul class="service-list">
-            <li>Installation Panneaux</li>
-            <li>Systèmes Batteries</li>
-            <li>Maintenance Inverter</li>
-            <li>Réseau SNEL / Groupe</li>
+            <li>Onduleurs (Raggie, etc.)</li>
+            <li>Batteries Gel/Lithium</li>
+            <li>Panneaux Photovoltaïques</li>
+            <li>Coffrets ANDELI / Protection</li>
         </ul>
-
-        <div class="category-title"><i class="fas fa-satellite-dish"></i> &nbsp; Antennes & Wi-Fi</div>
+        <div class="category-title"><i class="fas fa-satellite-dish"></i> &nbsp; Réseaux & Starlink</div>
         <ul class="service-list">
-            <li>Starlink Standard/Mini</li>
+            <li>Starlink (Installation/Config)</li>
             <li>Canal+ / Startimes</li>
-            <li>Configuration Wi-Fi</li>
-            <li>TNT</li>
+            <li>Vidéosurveillance (CCTV)</li>
+            <li>Wi-Fi Longue Portée</li>
         </ul>
-
-        <div class="category-title"><i class="fas fa-tools"></i> &nbsp; Maintenance & Dépannage</div>
+        <div class="category-title"><i class="fas fa-tools"></i> &nbsp; Maintenance Technique</div>
         <ul class="service-list">
-            <li>Réparation Électronique</li>
-            <li>PC & Téléphones</li>
-            <li>Maintenance Climatisation</li>
-            <li>Montage Supports TV</li>
-        </ul>
-
-        <div class="category-title"><i class="fas fa-lightbulb"></i> &nbsp; Décoration LED</div>
-        <ul class="service-list">
-            <li>Profils LED Design</li>
-            <li>Spots Encastrés</li>
-            <li>Éclairage Intelligent</li>
+            <li>Électronique de Puissance</li>
+            <li>Froid & Climatisation</li>
+            <li>Supports TV & LED</li>
+            <li>Plomberie & Sanitaire</li>
         </ul>
     </div>
 
     <div class="form-panel">
-        <h3 style="text-align:center;">Contactez l'expert</h3>
+        <h3 style="text-align:center;">Demander un devis</h3>
         <form action="https://formsubmit.co/olivierbobijules75@gmail.com" method="POST">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="text" name="Nom" placeholder="Votre Nom" required>
-            
+            <input type="text" name="Nom" placeholder="Nom Complet" required>
             <div style="display:flex; gap:5px;">
-                <select name="Pays" style="flex:1;">
-                    <option value="+243">🇨🇩 RDC</option>
-                    <option value="+33">🇫🇷 FR</option>
-                    <option value="+32">🇧🇪 BE</option>
+                <select name="CodePays" style="flex:1;">
+                    <option value="+243">🇨🇩 +243</option>
+                    <option value="+33">🇫🇷 +33</option>
+                    <option value="+32">🇧🇪 +32</option>
                 </select>
-                <input type="tel" name="Numero" placeholder="830998296" style="flex:2;" required>
+                <input type="tel" name="Tel" placeholder="Numéro" required style="flex:2;">
             </div>
-
             <select name="Service">
                 <option>Solaire / Électricité</option>
-                <option>Starlink / Wi-Fi</option>
-                <option>Dépannage / Montage</option>
+                <option>Starlink / Réseaux</option>
+                <option>Vidéosurveillance</option>
                 <option>Décoration LED</option>
             </select>
-            <textarea name="Message" rows="3" placeholder="Détails de votre projet..."></textarea>
-            <button type="submit" class="btn-send">Envoyer la demande</button>
+            <textarea name="Message" rows="3" placeholder="Description de votre besoin..."></textarea>
+            <button type="submit" class="btn-send">Envoyer par Email</button>
         </form>
         <a href="https://wa.me/243830998296" class="btn-whatsapp" target="_blank">
-            <i class="fab fa-whatsapp"></i>&nbsp; WhatsApp Direct
+            <i class="fab fa-whatsapp"></i>&nbsp; Discuter sur WhatsApp
         </a>
     </div>
 </div>
@@ -190,17 +180,13 @@
 <script>
     let index = 0;
     const slider = document.getElementById('slider');
-    const totalSlides = 11; // Nombre total de photos
+    const total = 24; // Nombre de photos
 
     function nextSlide() {
         index++;
-        if (index >= totalSlides) {
-            index = 0;
-        }
-        slider.style.transform = `translateX(-${index * (100 / totalSlides)}%)`;
+        if (index >= total) index = 0;
+        slider.style.transform = `translateX(-${index * 100}%)`;
     }
-
-    // Change de photo toutes les 5000ms (5 secondes)
     setInterval(nextSlide, 5000);
 </script>
 
