@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -40,7 +39,7 @@
 
         .slides {
             display: flex;
-            width: 1100%; /* Ajusté pour 11 photos (5 originales + 6 nouvelles) */
+            width: 1100%; /* Ajusté pour 11 photos */
             height: 100%;
             transition: transform 1s ease-in-out;
         }
@@ -48,7 +47,8 @@
         .slides img {
             width: 100%;
             height: 400px;
-            object-fit: cover; /* Important pour que les photos gardent une belle forme */
+            object-fit: cover; /* Remplit le cadre en recadrant si nécessaire */
+            object-position: center; /* Centre l'image dans le cadre */
         }
 
         /* --- MISE EN PAGE PRINCIPALE --- */
@@ -112,7 +112,6 @@
         <img src="PXL_20251030_065834633.jpg" alt="Installation TV & LED">
         <img src="PXL_20250909_073748394.jpg" alt="Installation Starlink">
         <img src="PXL_20250827_173156229.jpg" alt="Tableau Électrique">
-        
         <img src="PXL_20250825_084122499.jpg" alt="Installation Solaire Toit Rouge">
         <img src="PXL_20250827_173150506.jpg" alt="Système Batterie Ragie">
         <img src="PXL_20250909_073748394.jpg" alt="Installation Starlink Toit Rouge">
@@ -191,7 +190,7 @@
 <script>
     let index = 0;
     const slider = document.getElementById('slider');
-    const totalSlides = 11; // Nombre total de photos (5 originales + 6 nouvelles)
+    const totalSlides = 11; // Nombre total de photos
 
     function nextSlide() {
         index++;
