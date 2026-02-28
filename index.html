@@ -2,192 +2,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OLI'energie - Expertise & Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>OLI'energie | Solutions Énergétiques & Services Techniques</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root { --primary: #28a745; --dark: #1a2a3a; }
+        :root {
+            --primary-color: #2ecc71;
+            --secondary-color: #27ae60;
+            --dark-bg: #1a2a3a;
+            --light-bg: #f8f9fa;
+            --text-main: #2c3e50;
+            --white: #ffffff;
+        }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: #f4f7f6;
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-main);
             margin: 0;
-            padding: 0;
+            line-height: 1.6;
         }
 
-        header {
-            background: var(--dark);
-            padding: 20px;
-            text-align: center;
-            color: white;
-        }
-        header h1 span { color: var(--primary); }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
 
-        /* --- DIAPORAMA OPTIMISÉ --- */
-        .slider-container {
-            width: 100%;
-            max-width: 1100px;
-            height: 450px;
-            margin: 20px auto;
-            overflow: hidden;
-            border-radius: 20px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .slides {
+        /* --- NAVIGATION --- */
+        nav {
+            background: var(--dark-bg);
+            padding: 15px 5%;
             display: flex;
-            height: 100%;
-            transition: transform 0.8s ease-in-out;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
+        .logo { color: var(--white); font-size: 1.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        .logo span { color: var(--primary-color); }
+
+        /* --- DIAPORAMA (SLIDER) --- */
+        .hero-slider {
+            width: 100%;
+            max-width: 1200px;
+            height: 500px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .slides { display: flex; height: 100%; transition: transform 0.8s cubic-bezier(0.45, 0, 0.55, 1); }
         .slides img {
             min-width: 100%;
             height: 100%;
-            object-fit: cover; /* Recadrage automatique */
-            object-position: center; /* Centrage parfait */
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.95);
         }
 
-        .main-container {
-            max-width: 1100px;
+        /* --- CONTENU PRINCIPAL --- */
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px 50px;
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 30px;
-            padding: 20px;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 40px;
         }
 
-        .services-panel, .form-panel {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
+        .card { background: var(--white); padding: 35px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
 
-        .category-title {
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 10px;
+        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 20px; }
+        .service-category h3 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
         }
+        .service-category h3 i { margin-right: 10px; width: 20px; }
 
-        .service-list {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 20px;
+        .service-list { list-style: none; padding: 0; margin: 0; }
+        .service-list li { margin-bottom: 8px; font-size: 0.95rem; display: flex; align-items: center; }
+        .service-list li::before { content: "•"; color: var(--primary-color); font-weight: bold; margin-right: 10px; }
+
+        /* --- FORMULAIRE ET CONTACT --- */
+        .contact-form h3 { text-align: center; margin-bottom: 25px; color: var(--dark-bg); }
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 18px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.3s;
         }
+        input:focus, select:focus, textarea:focus { border-color: var(--primary-color); outline: none; }
 
-        /* --- FORMULAIRE --- */
-        .form-panel { border-top: 6px solid var(--primary); position: sticky; top: 20px; }
-        input, select, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid #eee; border-radius: 10px; box-sizing: border-box; }
-        .btn-send { background: var(--primary); color: white; border: none; padding: 15px; width: 100%; border-radius: 10px; font-weight: 700; cursor: pointer; }
-        .btn-whatsapp { display: flex; align-items: center; justify-content: center; background: #25d366; color: white; text-decoration: none; padding: 12px; border-radius: 10px; margin-top: 10px; font-weight: 700; }
+        .btn-submit {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 16px;
+            width: 100%;
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover { background: var(--secondary-color); }
 
-        @media (max-width: 900px) {
-            .main-container { grid-template-columns: 1fr; }
-            .slider-container { height: 300px; }
+        .whatsapp-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: 700;
+            transition: transform 0.2s;
+        }
+        .whatsapp-link:hover { transform: translateY(-2px); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 968px) {
+            .container { grid-template-columns: 1fr; }
+            .hero-slider { height: 350px; margin: 15px; }
+            .services-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>OLI<span>'energie</span></h1>
-    <p>Expertise Énergétique & Multi-Services</p>
-</header>
+<nav>
+    <div class="logo">OLI<span>'energie</span></div>
+    <div style="color: white; font-size: 0.9rem; font-weight: 600;"><i class="fas fa-phone"></i> +243 830 998 296</div>
+</nav>
 
-<div class="slider-container">
-    <div class="slides" id="slider">
-        <script>
-            const images = [
-                "me.jpg", "58dca6e77c974770870ebeae53184361.jpg", "IMG-20251212-WA0018.jpg",
-                "IMG-20251228-WA0001.jpg", "PXL_20250825_084122499.jpg", "PXL_20250827_173150506.jpg",
-                "PXL_20250909_073748394.jpg", "PXL_20251015_133015185.NIGHT~2.jpg", "PXL_20251030_065834633.jpg",
-                "PXL_20251112_155233578.jpg", "PXL_20251204_150236883~2.jpg", "PXL_20251212_171817566.jpg",
-                "PXL_20251216_091114425.jpg", "PXL_20251226_102606396.MP~2.jpg", "PXL_20251228_084137357.MP.jpg",
-                "PXL_20260120_154039979~2.jpg", "PXL_20260120_154355634.jpg", "PXL_20260120_161557425.NIGHT.jpg",
-                "PXL_20260120_161614100.NIGHT.jpg", "PXL_20260216_154345146.jpg", "PXL_20260216_154350803.jpg",
-                "PXL_20260216_154434429.jpg", "PXL_20260227_161526098.jpg", "PXL_20260227_162115052.jpg"
-            ];
-            const sliderDiv = document.getElementById('slider');
-            images.forEach(img => {
-                const el = document.createElement('img');
-                el.src = img;
-                sliderDiv.appendChild(el);
-            });
-        </script>
-    </div>
+<div class="hero-slider">
+    <div class="slides" id="mainSlider">
+        </div>
 </div>
 
-<div class="main-container">
-    <div class="services-panel">
-        <h2>Nos Services Professionnels</h2>
-        <div class="category-title"><i class="fas fa-bolt"></i> &nbsp; Énergie Solaire & SNEL</div>
-        <ul class="service-list">
-            <li>Onduleurs (Raggie, etc.)</li>
-            <li>Batteries Gel/Lithium</li>
-            <li>Panneaux Photovoltaïques</li>
-            <li>Coffrets ANDELI / Protection</li>
-        </ul>
-        <div class="category-title"><i class="fas fa-satellite-dish"></i> &nbsp; Réseaux & Starlink</div>
-        <ul class="service-list">
-            <li>Starlink (Installation/Config)</li>
-            <li>Canal+ / Startimes</li>
-            <li>Vidéosurveillance (CCTV)</li>
-            <li>Wi-Fi Longue Portée</li>
-        </ul>
-        <div class="category-title"><i class="fas fa-tools"></i> &nbsp; Maintenance Technique</div>
-        <ul class="service-list">
-            <li>Électronique de Puissance</li>
-            <li>Froid & Climatisation</li>
-            <li>Supports TV & LED</li>
-            <li>Plomberie & Sanitaire</li>
-        </ul>
+<div class="container">
+    <div class="card">
+        <h2 style="margin-top:0;">Nos Réalisations & Expertise</h2>
+        <p>Expert en solutions énergétiques et maintenance technique multiservice en RDC.</p>
+        
+        <div class="services-grid">
+            <div class="service-category">
+                <h3><i class="fas fa-solar-panel"></i> Énergie Solaire</h3>
+                <ul class="service-list">
+                    <li>Installation de panneaux photovoltaïques</li>
+                    <li>Configuration d'onduleurs hybrides</li>
+                    <li>Maintenance de parcs de batteries</li>
+                    <li>Systèmes de secours (Back-up)</li>
+                </ul>
+            </div>
+            
+            <div class="service-category">
+                <h3><i class="fas fa-wifi"></i> Connectivité & Réseaux</h3>
+                <ul class="service-list">
+                    <li>Installation Starlink (Standard & Mini)</li>
+                    <li>Déploiement Wi-Fi longue portée</li>
+                    <li>Configuration de réseaux locaux</li>
+                    <li>Vidéosurveillance (CCTV)</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <h3><i class="fas fa-bolt"></i> Électricité & Domotique</h3>
+                <ul class="service-list">
+                    <li>Câblage de tableaux électriques</li>
+                    <li>Éclairage LED architectural</li>
+                    <li>Installation de supports TV muraux</li>
+                    <li>Protection contre les surtensions</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <h3><i class="fas fa-toolbox"></i> Maintenance Générale</h3>
+                <ul class="service-list">
+                    <li>Réparation électronique de puissance</li>
+                    <li>Entretien de climatisation</li>
+                    <li>Dépannage informatique & PC</li>
+                    <li>Plomberie technique</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <div class="form-panel">
-        <h3 style="text-align:center;">Demander un devis</h3>
-        <form action="https://formsubmit.co/olivierbobijules75@gmail.com" method="POST">
-            <input type="text" name="Nom" placeholder="Nom Complet" required>
-            <div style="display:flex; gap:5px;">
-                <select name="CodePays" style="flex:1;">
-                    <option value="+243">🇨🇩 +243</option>
-                    <option value="+33">🇫🇷 +33</option>
-                    <option value="+32">🇧🇪 +32</option>
+    <div class="card">
+        <div class="contact-form">
+            <h3>Demander un Devis Gratuit</h3>
+            <form action="https://formsubmit.co/olivierbobijules75@gmail.com" method="POST">
+                <input type="text" name="Nom" placeholder="Nom complet" required>
+                
+                <div style="display:flex; gap:10px;">
+                    <select name="Pays" style="flex:1;">
+                        <option value="+243">🇨🇩 +243</option>
+                        <option value="+33">🇫🇷 +33</option>
+                    </select>
+                    <input type="tel" name="Telephone" placeholder="Numéro de téléphone" style="flex:2;" required>
+                </div>
+
+                <select name="Type_Service" required>
+                    <option value="" disabled selected>Sélectionnez un service</option>
+                    <option>Solaire / Électricité</option>
+                    <option>Starlink / Internet</option>
+                    <option>Vidéosurveillance / Sécurité</option>
+                    <option>Maintenance / Dépannage</option>
                 </select>
-                <input type="tel" name="Tel" placeholder="Numéro" required style="flex:2;">
-            </div>
-            <select name="Service">
-                <option>Solaire / Électricité</option>
-                <option>Starlink / Réseaux</option>
-                <option>Vidéosurveillance</option>
-                <option>Décoration LED</option>
-            </select>
-            <textarea name="Message" rows="3" placeholder="Description de votre besoin..."></textarea>
-            <button type="submit" class="btn-send">Envoyer par Email</button>
-        </form>
-        <a href="https://wa.me/243830998296" class="btn-whatsapp" target="_blank">
-            <i class="fab fa-whatsapp"></i>&nbsp; Discuter sur WhatsApp
-        </a>
+
+                <textarea name="Message" rows="4" placeholder="Détaillez votre projet ou votre panne..."></textarea>
+                
+                <button type="submit" class="btn-submit">Envoyer la demande</button>
+            </form>
+
+            <a href="https://wa.me/243830998296" class="whatsapp-link" target="_blank">
+                <i class="fab fa-whatsapp"></i>&nbsp; Contacter via WhatsApp
+            </a>
+        </div>
     </div>
 </div>
 
 <script>
-    let index = 0;
-    const slider = document.getElementById('slider');
-    const total = 24; // Nombre de photos
+    // Liste rigoureuse des fichiers images
+    const images = [
+        "me.jpg", "58dca6e77c974770870ebeae53184361.jpg", "IMG-20251212-WA0018.jpg",
+        "IMG-20251228-WA0001.jpg", "PXL_20250825_084122499.jpg", "PXL_20250827_173150506.jpg",
+        "PXL_20250909_073748394.jpg", "PXL_20251015_133015185.NIGHT~2.jpg", "PXL_20251030_065834633.jpg",
+        "PXL_20251112_155233578.jpg", "PXL_20251204_150236883~2.jpg", "PXL_20251212_171817566.jpg",
+        "PXL_20251216_091114425.jpg", "PXL_20251226_102606396.MP~2.jpg", "PXL_20251228_084137357.MP.jpg",
+        "PXL_20260120_154039979~2.jpg", "PXL_20260120_154355634.jpg", "PXL_20260120_161557425.NIGHT.jpg",
+        "PXL_20260120_161614100.NIGHT.jpg", "PXL_20260216_154345146.jpg", "PXL_20260216_154350803.jpg",
+        "PXL_20260216_154434429.jpg", "PXL_20260227_161526098.jpg", "PXL_20260227_162115052.jpg"
+    ];
 
-    function nextSlide() {
-        index++;
-        if (index >= total) index = 0;
-        slider.style.transform = `translateX(-${index * 100}%)`;
+    const slider = document.getElementById('mainSlider');
+    
+    // Injection des images
+    images.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = "Réalisation OLI'energie";
+        slider.appendChild(img);
+    });
+
+    // Logique de défilement
+    let currentIndex = 0;
+    function slide() {
+        currentIndex++;
+        if (currentIndex >= images.length) currentIndex = 0;
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
-    setInterval(nextSlide, 5000);
+
+    // Intervalle de 5 secondes
+    setInterval(slide, 5000);
 </script>
 
 </body>
